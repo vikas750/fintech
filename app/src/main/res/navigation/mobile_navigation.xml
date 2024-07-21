@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/home_screen">
+
+    <fragment
+        android:id="@+id/transfer"
+        android:name="com.fintech.demo.presentation.ui.contact.TransferFragment"
+        android:label="@string/transfers"
+        tools:layout="@layout/fragment_transfers" />
+
+    <fragment
+        android:id="@+id/home_screen"
+        android:name="com.fintech.demo.presentation.ui.homescreen.HomeScreenFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home_screen" />
+
+    <fragment
+        android:id="@+id/camera"
+        android:name="com.fintech.demo.presentation.ui.payment.CameraFragment"
+        android:label="@string/camera"
+        tools:layout="@layout/fragment_camera" />
+
+    <fragment
+        android:id="@+id/cards"
+        android:name="com.fintech.demo.presentation.ui.payment.CameraFragment"
+        android:label="@string/camera"
+        tools:layout="@layout/fragment_camera" />
+
+    <fragment
+        android:id="@+id/statistics"
+        android:name="com.fintech.demo.presentation.ui.payment.CameraFragment"
+        android:label="@string/camera"
+        tools:layout="@layout/fragment_camera" />
+</navigation>
