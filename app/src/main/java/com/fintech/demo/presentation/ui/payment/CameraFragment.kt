@@ -32,6 +32,9 @@ class CameraFragment : Fragment() {
     private lateinit var barcodeScanner: BarcodeScanner
 
     private lateinit var mBinding: FragmentCameraBinding
+    // Flag to check if scanning is in progress
+    private var isScanning = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {}
@@ -89,8 +92,14 @@ class CameraFragment : Fragment() {
     }
 
     private fun processImageProxy(imageProxy: ImageProxy) {
+        if (!isScanning) {
+            imageProxy.close()
+            return
+        }
+
         val mediaImage = imageProxy.image
         if (mediaImage != null) {
+            isScanning = true
             val image = InputImage.fromMediaImage(mediaImage, imageProxy.imageInfo.rotationDegrees)
             val result: Task<List<Barcode>> =
                 barcodeScanner.process(image).addOnSuccessListener { barcodes ->
